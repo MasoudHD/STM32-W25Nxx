@@ -1,5 +1,26 @@
 #include "w25n.h"
 
+//Change these handlers based on yours
+SPI_HandleTypeDef hspi1;
+UART_HandleTypeDef huart1;
+
+char* hello = "Hello world, lets test NAND Flash";
+char* data1 = "This is First data to write";
+char* data2 = "This is Second data to write";
+
+char buf[512];
+
+void println(char* str)
+{
+    //Change huart1 based on your USART handler
+    HAL_UART_Transmit(&huart1, (unsigned char*)str, strlen(str), 100);
+    HAL_UART_Transmit(&huart1, (unsigned char*)"\n\r", 2, 100); 
+}
+
+void InitProgram(void)
+{
+  //Init peripherals you use (SPI, USART, ...)
+}
 
 int main(void)
 {
