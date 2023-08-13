@@ -67,7 +67,7 @@ int main(void)
 
   w25nProgramExecute(0);
 
-
+  println("\nNow lets Read the saved data:");
   //Reading data
   w25nPageDataRead(0);
 
@@ -82,6 +82,8 @@ int main(void)
   memset(buf, 0, sizeof(buf));
   w25nRead(strlen(hello) + strlen(data1) + 2, buf, strlen(data2));
   println(buf);
+  
+  println("\n\r");
 
   while (1)
   {

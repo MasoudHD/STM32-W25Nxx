@@ -129,6 +129,7 @@ int w25nBlockErase(uint32_t pageAdd)
   w25nBlock_WIP();
   w25nWriteEnable();
   w25nSendData(buf, sizeof(buf));
+  HAL_Delay(10);
   return 0;
 }
 
